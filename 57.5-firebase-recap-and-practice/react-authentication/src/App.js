@@ -1,5 +1,5 @@
 import './App.css';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import { useState } from 'react';
 import img from './Image/shopping2.png';
@@ -67,37 +67,25 @@ function App() {
 
 	const handleRegistration = (e) => {
 		e.preventDefault();
-
 		console.log(email, password);
-
 		if (password.length < 6) {
-			setError('Password must be at least 6 characters long');
+			setError('Password Must be at least 6 characters long.');
 			return;
 		}
 		if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
 			setError('Password Must contain 2 upper case');
 			return;
 		}
-	if(isLogIn){
-		processLogIn(email,password)
-	}
-	else{
-		createNewUser(email, password)
-	}
 
-	const processLogIn = (email, password) => {
-		signInWithEmailAndPassword(auth,email,password)
-		.then(result=>{
-			const user =result.user
-			console.log(user);
-		})
-		.catch(error=>{
-			setError(error.message)
-		})
+		if (isLogIn) {
+			processLogIn(email, password);
+		} else {
+			createNewUser(email, password);
+		}
 	};
 
-	const createNewUser = (email, password) => {
-		createUserWithEmailAndPassword(auth, email, password)
+	const processLogIn = (email, password) => {
+		signInWithEmailAndPassword(auth, email, password)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
@@ -108,6 +96,30 @@ function App() {
 			});
 	};
 
+	const createNewUser = (email, password) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				setError('');
+				verifyEmail();
+			})
+			.catch((error) => {
+				setError(error.message);
+			});
+	};
+
+	const verifyEmail = () => {
+		sendEmailVerification(auth.currentUser).then((result) => {
+			console.log(result);
+		});
+	};
+
+	const handleResetPassword = () => {
+		sendPasswordResetEmail(auth, email).then((result) => {
+			console.log(result);
+		});
+	};
 	return (
 		<Container>
 			<div id="carouselExampleSlidesOnly" className="carousel slide bg-info bg-opacity-50 intro-part" data-ride="carousel ">
@@ -153,6 +165,10 @@ function App() {
 											<button type="submit" className="btn btn-primary">
 												{isLogIn ? 'LogIn' : 'Register'}
 											</button>
+											<br />
+											<button onClick={handleResetPassword} type="button" className="btn btn-secondary btn-sm">
+												Reset Password
+											</button>
 										</div>
 										<br />
 										<br />
@@ -191,7 +207,6 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<div>------------------------------</div>
 		</Container>
 	);
 }
