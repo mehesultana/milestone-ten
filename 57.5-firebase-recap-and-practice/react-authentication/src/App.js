@@ -1,5 +1,5 @@
 import './App.css';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile } from 'firebase/auth';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import { useState } from 'react';
 import img from './Image/shopping2.png';
@@ -12,6 +12,7 @@ const gitHubProvider = new GithubAuthProvider();
 
 function App() {
 	const [user, setUser] = useState({});
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
@@ -55,6 +56,10 @@ function App() {
 
 	const toggleLogIn = (e) => {
 		setIsLogIn(e.target.checked);
+	};
+
+	const handleNameChange = (e) => {
+		setName(e.target.value);
 	};
 
 	const handleEmailChange = (e) => {
@@ -103,10 +108,17 @@ function App() {
 				console.log(user);
 				setError('');
 				verifyEmail();
+				setUserName();
 			})
 			.catch((error) => {
 				setError(error.message);
 			});
+	};
+
+	const setUserName = () => {
+		updateProfile(auth.currentUser, { displayName: name }).then((result) => {
+			console.log(result);
+		});
 	};
 
 	const verifyEmail = () => {
@@ -129,6 +141,15 @@ function App() {
 							<div className="col-md-6 mt-5 my-5 mb-5  my-5 order-md-1 pb-5 banner-text bg-light">
 								<form onSubmit={handleRegistration}>
 									<h2>Please {isLogIn ? 'LogIn' : 'Register'}</h2>
+
+									{!isLogIn && (
+										<div className="col-12">
+											<label htmlFor="inputAddress2" className="form-label">
+												Name
+											</label>
+											<input onBlur={handleNameChange} type="text" className="form-control" id="inputAddress2" placeholder="Your Name" />
+										</div>
+									)}
 									<div className="form-group row mt-5 ">
 										<label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
 											Email
