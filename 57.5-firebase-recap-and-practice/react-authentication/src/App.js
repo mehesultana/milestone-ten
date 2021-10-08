@@ -1,5 +1,5 @@
 import './App.css';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from 'firebase/auth';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import { useState } from 'react';
 import img from './Image/shopping2.png';
@@ -15,6 +15,7 @@ function App() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [isLogIn, setIsLogIn] = useState(false);
 
 	const auth = getAuth();
 
@@ -52,6 +53,10 @@ function App() {
 		});
 	};
 
+	const toggleLogIn = (e) => {
+		setIsLogIn(e.target.checked);
+	};
+
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value);
 	};
@@ -73,11 +78,34 @@ function App() {
 			setError('Password Must contain 2 upper case');
 			return;
 		}
+	if(isLogIn){
+		processLogIn(email,password)
+	}
+	else{
+		createNewUser(email, password)
+	}
 
-		createUserWithEmailAndPassword(auth, email, password).then((result) => {
-			const user = result.user;
+	const processLogIn = (email, password) => {
+		signInWithEmailAndPassword(auth,email,password)
+		.then(result=>{
+			const user =result.user
 			console.log(user);
-		});
+		})
+		.catch(error=>{
+			setError(error.message)
+		})
+	};
+
+	const createNewUser = (email, password) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				setError('');
+			})
+			.catch((error) => {
+				setError(error.message);
+			});
 	};
 
 	return (
@@ -88,7 +116,7 @@ function App() {
 						<div className="row align-items-center">
 							<div className="col-md-6 mt-5 my-5 mb-5  my-5 order-md-1 pb-5 banner-text bg-light">
 								<form onSubmit={handleRegistration}>
-									<h2>Please Register</h2>
+									<h2>Please {isLogIn ? 'LogIn' : 'Register'}</h2>
 									<div className="form-group row mt-5 ">
 										<label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
 											Email
@@ -109,12 +137,11 @@ function App() {
 									<br />
 
 									<div className="form-group row">
-										<div className="col-sm-2">Checkbox</div>
 										<div className="col-sm-10">
 											<div className="form-check">
-												<input className="form-check-input" type="checkbox" id="gridCheck1" />
+												<input onChange={toggleLogIn} className="form-check-input" type="checkbox" id="gridCheck1" />
 												<label className="form-check-label" htmlFor="gridCheck1">
-													Example checkbox
+													Already Registered?
 												</label>
 											</div>
 										</div>
@@ -124,14 +151,11 @@ function App() {
 									<div className="form-group row">
 										<div className="col-sm-10">
 											<button type="submit" className="btn btn-primary">
-												Register
+												{isLogIn ? 'LogIn' : 'Register'}
 											</button>
 										</div>
 										<br />
 										<br />
-
-										<h5>Already Have an Account?</h5>
-
 										{!user.name ? (
 											<div>
 												<button onClick={handleGoogleSignIn} type="button" className="btn btn-info">
