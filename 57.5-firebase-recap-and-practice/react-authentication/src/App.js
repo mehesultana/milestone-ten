@@ -11,7 +11,11 @@ const gitHubProvider = new GithubAuthProvider();
 
 function App() {
 	const [user, setUser] = useState({});
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
 	const auth = getAuth();
+
 	const handleGoogleSignIn = () => {
 		signInWithPopup(auth, googleProvider)
 			.then((result) => {
@@ -46,8 +50,16 @@ function App() {
 		});
 	};
 
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
+	};
+
+	const handlePasswordChange = (e) => {
+		setPassword(e.target.value);
+	};
+
 	const handleRegistration = (e) => {
-		console.log('registation');
+		console.log(email, password);
 		e.preventDefault();
 	};
 
@@ -57,14 +69,15 @@ function App() {
 				<div className="carousel-inner">
 					<div className="carousel-item active">
 						<div className="row align-items-center">
-							<div className="col-md-6 mt-5 mb-5 order-md-1 pb-5 banner-text">
+							<div className="col-md-6 mt-5 my-5 mb-5  my-5 order-md-1 pb-5 banner-text bg-light">
 								<form onSubmit={handleRegistration}>
-									<div className="form-group row">
+									<h2>Please Register</h2>
+									<div className="form-group row mt-5 ">
 										<label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
 											Email
 										</label>
 										<div className="col-sm-10">
-											<input type="email" className="form-control" id="inputEmail3" placeholder="Email" />
+											<input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" placeholder="Email" />
 										</div>
 									</div>
 									<br />
@@ -73,7 +86,7 @@ function App() {
 											Password
 										</label>
 										<div className="col-sm-10">
-											<input type="password" className="form-control" id="inputPassword3" placeholder="Password" />
+											<input onBlur={handlePasswordChange} type="password" className="form-control" id="inputPassword3" placeholder="Password" />
 										</div>
 									</div>
 									<br />
