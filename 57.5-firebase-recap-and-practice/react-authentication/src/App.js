@@ -1,5 +1,5 @@
 import './App.css';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import { useState } from 'react';
 import img from './Image/shopping2.png';
@@ -59,6 +59,10 @@ function App() {
 	};
 
 	const handleRegistration = (e) => {
+		createUserWithEmailAndPassword(auth, email, password).then((result) => {
+			const user = result.user;
+			console.log(user);
+		});
 		console.log(email, password);
 		e.preventDefault();
 	};
@@ -77,7 +81,7 @@ function App() {
 											Email
 										</label>
 										<div className="col-sm-10">
-											<input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" placeholder="Email" />
+											<input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" placeholder="Email" required />
 										</div>
 									</div>
 									<br />
@@ -86,7 +90,7 @@ function App() {
 											Password
 										</label>
 										<div className="col-sm-10">
-											<input onBlur={handlePasswordChange} type="password" className="form-control" id="inputPassword3" placeholder="Password" />
+											<input onBlur={handlePasswordChange} type="password" className="form-control" id="inputPassword3" placeholder="Password" required />
 										</div>
 									</div>
 									<br />
@@ -106,7 +110,7 @@ function App() {
 									<div className="form-group row">
 										<div className="col-sm-10">
 											<button type="submit" className="btn btn-primary">
-												Sign in
+												Register
 											</button>
 										</div>
 									</div>
