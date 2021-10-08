@@ -3,6 +3,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signO
 import initializeAuthentication from './Firebase/firebase.initialize';
 import { useState } from 'react';
 import img from './Image/shopping2.png';
+import { Container } from 'react-bootstrap';
 
 initializeAuthentication();
 
@@ -13,6 +14,7 @@ function App() {
 	const [user, setUser] = useState({});
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
 
 	const auth = getAuth();
 
@@ -59,16 +61,27 @@ function App() {
 	};
 
 	const handleRegistration = (e) => {
+		e.preventDefault();
+
+		console.log(email, password);
+
+		if (password.length < 6) {
+			setError('Password must be at least 6 characters long');
+			return;
+		}
+		if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+			setError('Password Must contain 2 upper case');
+			return;
+		}
+
 		createUserWithEmailAndPassword(auth, email, password).then((result) => {
 			const user = result.user;
 			console.log(user);
 		});
-		console.log(email, password);
-		e.preventDefault();
 	};
 
 	return (
-		<div className="App">
+		<Container>
 			<div id="carouselExampleSlidesOnly" className="carousel slide bg-info bg-opacity-50 intro-part" data-ride="carousel ">
 				<div className="carousel-inner">
 					<div className="carousel-item active">
@@ -107,12 +120,43 @@ function App() {
 										</div>
 									</div>
 									<br />
+									<div className="text-danger"> {error}</div>
 									<div className="form-group row">
 										<div className="col-sm-10">
 											<button type="submit" className="btn btn-primary">
 												Register
 											</button>
 										</div>
+										<br />
+										<br />
+
+										<h5>Already Have an Account?</h5>
+
+										{!user.name ? (
+											<div>
+												<button onClick={handleGoogleSignIn} type="button" className="btn btn-info">
+													Sign In With Google
+												</button>
+												<br />
+												<br />
+
+												<button onClick={handleGithubSignIn} type="button" className="btn btn-dark">
+													Sign In With Github
+												</button>
+											</div>
+										) : (
+											<button onClick={handleSignOut} type="button" className="btn btn-danger">
+												Sign Out
+											</button>
+										)}
+										<br />
+										{user.name && (
+											<div>
+												<h1> Welcome {user.name}</h1>
+												<h4>Your Email address : {user.email}</h4>
+												<img src={user.photo} alt="" />
+											</div>
+										)}
 									</div>
 								</form>
 							</div>
@@ -124,33 +168,7 @@ function App() {
 				</div>
 			</div>
 			<div>------------------------------</div>
-			<br />
-			<br />
-			<br />
-			{!user.name ? (
-				<div>
-					<button onClick={handleGoogleSignIn} type="button" className="btn btn-info">
-						Google Sign In
-					</button>
-					<br />
-					<button onClick={handleGithubSignIn} type="button" className="btn btn-dark">
-						Github Sign In
-					</button>
-				</div>
-			) : (
-				<button onClick={handleSignOut} type="button" className="btn btn-danger">
-					Sign Out
-				</button>
-			)}
-			<br />
-			{user.name && (
-				<div>
-					<h1> Welcome {user.name}</h1>
-					<h4>Your Email address : {user.email}</h4>
-					<img src={user.photo} alt="" />
-				</div>
-			)}
-		</div>
+		</Container>
 	);
 }
 
