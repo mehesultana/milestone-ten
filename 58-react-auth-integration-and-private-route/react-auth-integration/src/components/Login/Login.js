@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import useFirebase from '../../hook/useFirebase';
 
 const Login = () => {
-	const { signInUsingGoogle } = useFirebase();
+	const { signInUsingGoogle, signInUsingGithub } = useFirebase();
 
 	return (
 		<div>
 			<h2>please login</h2>
 			<button onClick={signInUsingGoogle}>Google sign in</button>
+			<br />
+			<button onClick={signInUsingGithub}>GitHub Sign In</button>
 			<br />
 			<Link to="/register"> New User?</Link>
 		</div>
