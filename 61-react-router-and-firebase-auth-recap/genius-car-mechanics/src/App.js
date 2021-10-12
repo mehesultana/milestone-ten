@@ -2,6 +2,7 @@ import './App.css';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Booking from './Pages/Booking/Booking/Booking';
 
 function App() {
 	return (
@@ -13,6 +14,9 @@ function App() {
 					</Route>
 					<Route path="/home">
 						<Home></Home>
+					</Route>
+					<Route path="/booking/:serviceId">
+						<Booking></Booking>
 					</Route>
 					<Route path="*">
 						<NotFound></NotFound>
