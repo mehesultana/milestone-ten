@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"name": "Bagel and cream cheese",
+		"price": "6.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/C2Bp4CV/breakfast4.png"
+	},
+	{
+		"id": 2,
+		"name": "Breakfast sandwich",
+		"price": "9.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/whzz7GT/breakfast2.png"
+	},
+	{
+		"id": 3,
+		"name": "Baked Chicken",
+		"price": "10.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/rmy5dpt/breakfast3.png"
+	},
+	{
+		"id": 4,
+		"name": "Eggs Benedict",
+		"price": "8.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/B40wjkX/breakfast1.png"
+	},
+	{
+		"id": 5,
+		"name": "Toast Croissant Fried Egg",
+		"price": "19.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/G7knpcz/breakfast6.png"
+	},
+	{
+		"id": 6,
+		"name": "Full BreakFast Fried Egg Toast Brunch",
+		"price": "3.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+		"img": "https://i.ibb.co/426Gs3Q/breakfast5.png"
+	}
+]

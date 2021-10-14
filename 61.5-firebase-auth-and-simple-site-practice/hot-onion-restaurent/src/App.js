@@ -1,9 +1,18 @@
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Home/Home';
+import Header from './pages/Shared/Header/Header';
 
 function App() {
 	return (
 		<div>
-			<h1>hot onion</h1>
+			<Router>
+				<Header />
+				<Switch>
+					<Route>
+						<Home />
+					</Route>
+				</Switch>
+			</Router>
 		</div>
 	);
 }

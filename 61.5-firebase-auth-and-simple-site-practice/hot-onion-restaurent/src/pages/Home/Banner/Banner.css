@@ -1,0 +1,14 @@
+.banner-image {
+	background-image: url('../../../images/bannerbackground.png');
+	height: 500px;
+	width: auto;
+}
+
+.banner-text {
+	text-align: center;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(8, 3, 3);
+}

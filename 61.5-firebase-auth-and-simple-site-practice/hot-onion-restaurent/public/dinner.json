@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"name": "Salmon with Grapefruit and Lentil Salad",
+		"price": "9.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/4K8TknM/dinner6.png"
+	},
+	{
+		"id": 2,
+		"name": "Lemony Salmon Piccata",
+		"price": "10.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/10CCjfw/dinner2.png"
+	},
+	{
+		"id": 3,
+		"name": "Pork tenderloin with Quinoa Pilaf",
+		"price": "12.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/dQRmthv/dinner5.png"
+	},
+	{
+		"id": 4,
+		"name": "Garlic Butter Baked Salmon",
+		"price": "6.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/BcHZK3L/dinner3.png"
+	},
+	{
+		"id": 5,
+		"name": "French fries with cheese",
+		"price": "8.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/fSdPkR8/dinner4.png"
+	},
+	{
+		"id": 6,
+		"name": "Baked Chicken",
+		"price": "9.99",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+		"img": "https://i.ibb.co/7WDPyCp/dinner1.png"
+	}
+]
