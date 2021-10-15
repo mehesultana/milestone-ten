@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Col, Container } from 'react-bootstrap';
 import './Lunch.css';
 
-const Lunch = (lunch) => {
+const Lunch = ({ lunch }) => {
 	// const { lunch } = props;
 	const { name, price, description, img } = lunch;
 

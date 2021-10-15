@@ -16,7 +16,7 @@ const Lunches = () => {
 			<h1 className="text-primary mt-5">Our lunches</h1>
 			<Row xs={2} md={3} className="g-4 ">
 				{lunches.map((lunch) => (
-					<Lunch key={lunch.id} dinner={lunch}></Lunch>
+					<Lunch key={lunch.id} lunch={lunch}></Lunch>
 				))}
 			</Row>
 		</Container>

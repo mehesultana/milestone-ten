@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"name": "Fast Delivery",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/vqh6gw8/adult-blur-blurred-background-687824.png"
+	},
+	{
+		"id": 2,
+		"name": "A Good Auto Responder",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/Jn452MC/chef-cook-food-33614.png"
+	},
+	{
+		"id": 3,
+		"name": "Home Delivery",
+		"description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+		"img": "https://i.ibb.co/xL54LBS/architecture-building-city-2047397.png"
+	}
+]
