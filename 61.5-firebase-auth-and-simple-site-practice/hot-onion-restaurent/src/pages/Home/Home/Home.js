@@ -15,7 +15,7 @@ const Home = () => {
 					<Route path="/login">
 						<Login />
 					</Route>
-					<Route>
+					<Route path="/allfood">
 						<AllFood />
 					</Route>
 				</Switch>

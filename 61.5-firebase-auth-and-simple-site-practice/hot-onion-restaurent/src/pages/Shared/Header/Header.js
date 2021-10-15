@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import logo2 from '../../../images/logo2.png';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -14,8 +15,15 @@ const Header = () => {
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
 						<FontAwesomeIcon icon={faCartPlus} />
-						<Nav.Link to="/login">Login</Nav.Link>
-						<Nav.Link to="/signup">Signup</Nav.Link>
+						<Nav.Link as={Link} to="/allfood">
+							All Food
+						</Nav.Link>
+						<Nav.Link as={Link} to="/login">
+							Login
+						</Nav.Link>
+						<Nav.Link as={Link} to="/signup">
+							Signup
+						</Nav.Link>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
