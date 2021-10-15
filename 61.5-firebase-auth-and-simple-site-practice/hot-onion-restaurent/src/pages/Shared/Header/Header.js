@@ -8,19 +8,17 @@ import './Header.css';
 const Header = () => {
 	return (
 		<>
-			<>
-				<Navbar bg="light" variant="light" sticky="top" collapseOnSelect expand="lg">
-					<Container>
-						<img className="logo" src={logo2} alt="" />
-						<Navbar.Toggle />
-						<Navbar.Collapse className="justify-content-end">
-							<FontAwesomeIcon icon={faCartPlus} />
-							<Nav.Link to="/login">Login</Nav.Link>
-							<Nav.Link to="/signup">Signup</Nav.Link>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
-			</>
+			<Navbar bg="light" variant="light" sticky="top" collapseOnSelect expand="lg">
+				<Container>
+					<img className="logo" src={logo2} alt="" />
+					<Navbar.Toggle />
+					<Navbar.Collapse className="justify-content-end">
+						<FontAwesomeIcon icon={faCartPlus} />
+						<Nav.Link to="/login">Login</Nav.Link>
+						<Nav.Link to="/signup">Signup</Nav.Link>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
 		</>
 	);
 };

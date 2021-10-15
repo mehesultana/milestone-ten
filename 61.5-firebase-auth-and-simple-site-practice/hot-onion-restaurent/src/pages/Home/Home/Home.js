@@ -1,14 +1,25 @@
 import React from 'react';
-import Abouts from '../About/Abouts/Abouts';
-import Banner from '../Banner/Banner';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from '../../Login/Login/Login';
+import Signup from '../../Signup/Signup';
 import AllFood from '../Foods/AllFoods/AllFood';
 
 const Home = () => {
 	return (
 		<div>
-			<Banner />
-			<AllFood />
-			<Abouts />
+			<Router>
+				<Switch>
+					<Route path="/signup">
+						<Signup />
+					</Route>
+					<Route path="/login">
+						<Login />
+					</Route>
+					<Route>
+						<AllFood />
+					</Route>
+				</Switch>
+			</Router>
 		</div>
 	);
 };
