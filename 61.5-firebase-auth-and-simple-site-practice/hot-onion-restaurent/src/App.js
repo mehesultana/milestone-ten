@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Footer from './pages/Shared/Footer/Footer';
 import Signup from './pages/Signup/Signup';
 import AuthProvider from './contexts/AuthProvider';
+import Login from './pages/Login/Login/Login';
 
 function App() {
 	return (
@@ -13,11 +14,17 @@ function App() {
 				<Router>
 					<Header />
 					<Switch>
-						<Route>
+						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route path="signup">
+						<Route exact path="/home">
+							<Home />
+						</Route>
+						<Route exact path="/signup">
 							<Signup />
+						</Route>
+						<Route exact path="/login">
+							<Login />
 						</Route>
 						<Route path="*">
 							<NotFound />

@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Abouts from '../../About/Abouts/Abouts';
-import Banner from '../../Banner/Banner';
 import Breakfasts from '../Breakfasts/Breakfasts';
 import Dinners from '../Dinners/Dinners';
 import FoodBar from '../FoodBar/FoodBar';
@@ -12,20 +10,24 @@ const AllFood = () => {
 	return (
 		<div>
 			<Router>
-				<Banner />
 				<FoodBar />
 				<Switch>
-					<Route path="/breakfast">
-						<Breakfasts />
+					<Route exact path="/">
+						<Breakfasts></Breakfasts>
 					</Route>
-					<Route path="/lunch">
-						<Lunches />
+					<Route exact path="/home/">
+						<Breakfasts></Breakfasts>
 					</Route>
-					<Route path="/dinner">
-						<Dinners />
+					<Route exact path="/breakfast">
+						<Breakfasts></Breakfasts>
+					</Route>
+					<Route exact path="/lunch">
+						<Lunches></Lunches>
+					</Route>
+					<Route exact path="/dinner">
+						<Dinners></Dinners>
 					</Route>
 				</Switch>
-				<Abouts />
 			</Router>
 		</div>
 	);
