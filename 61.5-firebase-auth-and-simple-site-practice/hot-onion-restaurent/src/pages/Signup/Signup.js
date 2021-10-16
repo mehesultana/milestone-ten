@@ -13,11 +13,11 @@ const Signup = () => {
 			<form onSubmit={handleRegistration}>
 				<img className="logo  mb-5" src={logo2} alt="" />
 				<br />
-				<input type="email" name="" id="" placeholder="Your Name" onBlur={handleNameChange} />
+				<input type="name" name="" id="" placeholder="Your Name" onBlur={handleNameChange} />
 				<br />
 				<input type="email" name="" id="" placeholder="Your Email" onBlur={handleEmailChange} />
 				<br />
-				<input type="password" name="" id="" placeholder="Your PasswordEmail" onBlur={handlePasswordChange} />
+				<input type="password" name="" id="" placeholder="Your Password" onBlur={handlePasswordChange} />
 				<br />
 				<br />
 				{error}
