@@ -10,7 +10,7 @@ const Login = () => {
 	const { signInUsingGoogle } = useAuth();
 
 	return (
-		<Container className="login-form">
+		<Container className="login-form background-image">
 			<div>
 				<h2>Login</h2>
 				<form>
@@ -24,14 +24,14 @@ const Login = () => {
 					new to Hot Onion? <Link to="/signup">Create Account</Link>
 				</p>
 				<div>-------or----------</div>
-				<Button onClick={signInUsingGoogle}>
+				<Button onClick={signInUsingGoogle} className="btn btn-secondary">
 					<FcGoogle className="w-6 h-6" />
 					Sign In With Google
 				</Button>
 				<br />
 				<br />
 
-				<Button className="btn-info">
+				<Button className="btn btn-info">
 					<FaFacebookF className="w-6 h-6" />
 					Sign In With Facebook
 				</Button>

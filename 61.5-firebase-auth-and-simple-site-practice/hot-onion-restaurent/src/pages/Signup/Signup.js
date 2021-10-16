@@ -39,52 +39,6 @@ const Signup = () => {
 				</button>
 			</form>
 		</Container>
-
-		// <Container className="text-center mt-5 mb-5">
-		// 	<img className="logo mb-5" src={logo2} alt="" />
-		// 	<form onSubmit={handleRegistration} className="signup-form">
-		// 		<h3>Please {isLogin ? 'Login' : 'Signup'}</h3>
-		// 		{!isLogin && (
-		// 			<div className="row mb-3">
-		// 				<div className="col-sm-10">
-		// 					<input type="text" onBlur={handleNameChange} className="form-control" id="inputName" placeholder="Your Name" />
-		// 				</div>
-		// 			</div>
-		// 		)}
-		// 		<div className="row mb-3">
-		// 			<div className="col-sm-10">
-		// 				<input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" required />
-		// 			</div>
-		// 		</div>
-		// 		<div className="col-sm-10">
-		// 			<input type="password" onBlur={handlePasswordChange} className="form-control" id="inputPassword3" required />
-		// 		</div>
-		// 	</form>
-		// 	<div className="row mb-3">
-		// 		<div className="col-sm-10 offset-sm-2">
-		// 			<div className="form-check">
-		// 				<input onChange={toggleLogin} className="form-check-input" type="checkbox" id="gridCheck1" />
-		// 				<h5>
-		// 					I have an account ? <Link to="/login">Login</Link>
-		// 				</h5>
-		// 				<br />
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		// 	<div className="row mb-3 text-danger">
-		// 		{error}
-		// 		<button type="submit" className="btn btn-success">
-		// 			{isLogin ? 'Login' : 'Signup'}
-		// 		</button>
-		// 		<br />
-		// 		<br />
-		// 		Forgot password?
-		// 		<br />
-		// 		<button type="button" onClick={handleResetPassword} className="btn btn-secondary btn-sm">
-		// 			Reset Password
-		// 		</button>
-		// 	</div>
-		// </Container>
 	);
 };
 
