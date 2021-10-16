@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { Container, Navbar } from 'react-bootstrap';
+import { Button, Container, Navbar } from 'react-bootstrap';
 import logo2 from '../../../images/logo2.png';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { BsArrowBarRight } from 'react-icons/bs';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
@@ -28,9 +29,13 @@ const Header = () => {
 							</Navbar.Text>
 						)}
 						{user?.email ? (
-							<button className="logout_btn" onClick={logOut}>
-								Logout
-							</button>
+							// <button className="btn-warning" onClick={logOut}>
+							// 	Logout
+							// </button>
+							<Button className="btn btn-warning" onClick={logOut}>
+								Log Out
+								<BsArrowBarRight className="w-6 h-6" />
+							</Button>
 						) : (
 							<div>
 								<Link to="/login">Login</Link>

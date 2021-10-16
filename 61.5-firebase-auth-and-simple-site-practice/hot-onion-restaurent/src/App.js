@@ -13,6 +13,7 @@ function App() {
 			<AuthProvider>
 				<Router>
 					<Header />
+
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -20,6 +21,7 @@ function App() {
 						<Route exact path="/home">
 							<Home />
 						</Route>
+
 						<Route exact path="/signup">
 							<Signup />
 						</Route>

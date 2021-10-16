@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
+import BreakfastDetail from '../BreakfastDetail/BreakfastDetail';
 import Breakfasts from '../Breakfasts/Breakfasts';
 import Dinners from '../Dinners/Dinners';
 import FoodBar from '../FoodBar/FoodBar';
@@ -23,6 +24,9 @@ const AllFood = () => {
 					</Route>
 					<Route exact path="/breakfast">
 						<Breakfasts></Breakfasts>
+					</Route>
+					<Route path="/breakfast/:name">
+						<BreakfastDetail></BreakfastDetail>
 					</Route>
 					<Route exact path="/lunch">
 						<Lunches></Lunches>
