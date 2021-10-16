@@ -6,7 +6,7 @@ import './FoodBar.css';
 const FoodBar = () => {
 	return (
 		<div>
-			<Container className="header">
+			<Container className="header my-5">
 				<Nav className="navbar text-center">
 					<NavLink to="/breakfast">Breakfast</NavLink>
 					<NavLink to="/lunch">Lunch</NavLink>
