@@ -21,7 +21,15 @@ const Header = () => {
 
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
-						<FontAwesomeIcon icon={faCartPlus} />
+						<Link className="ms-3 home" to="/home">
+							Home
+						</Link>
+						<Link className="ms-3 allfoods" to="/allfoods">
+							All Foods
+						</Link>
+						<Link className="ms-3 cart" to="/cart">
+							Cart <FontAwesomeIcon icon={faCartPlus} />
+						</Link>
 
 						{user?.email && (
 							<Navbar.Text>

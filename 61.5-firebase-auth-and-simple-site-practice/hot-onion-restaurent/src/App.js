@@ -6,6 +6,9 @@ import Footer from './pages/Shared/Footer/Footer';
 import Signup from './pages/Signup/Signup';
 import AuthProvider from './contexts/AuthProvider';
 import Login from './pages/Login/Login/Login';
+import AllFoods from './pages/AllFoods/AllFoods';
+import Cart from './pages/Cart/Cart';
+import PrivateRoute from '../src/pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
 	return (
@@ -21,6 +24,12 @@ function App() {
 						<Route exact path="/home">
 							<Home />
 						</Route>
+						<PrivateRoute exact path="/cart">
+							<Cart />
+						</PrivateRoute>
+						<PrivateRoute path="/allfoods">
+							<AllFoods />
+						</PrivateRoute>
 
 						<Route exact path="/signup">
 							<Signup />
