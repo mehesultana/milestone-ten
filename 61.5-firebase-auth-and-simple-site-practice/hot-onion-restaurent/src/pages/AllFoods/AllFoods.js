@@ -1,10 +1,15 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Breakfasts from '../Home/Foods/Breakfasts/Breakfasts';
+import Dinners from '../Home/Foods/Dinners/Dinners';
+import Lunches from '../Home/Foods/Lunches/Lunches';
 
 const AllFoods = () => {
 	return (
 		<Container>
-			<h2>All food here</h2>
+			<Breakfasts />
+			<Lunches />
+			<Dinners />
 		</Container>
 	);
 };

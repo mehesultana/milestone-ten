@@ -17,22 +17,22 @@ const AllFood = () => {
 				<FoodBar />
 				<Switch>
 					<Route exact path="/">
-						<Breakfasts></Breakfasts>
+						<Breakfasts />
 					</Route>
 					<Route exact path="/home/">
-						<Breakfasts></Breakfasts>
+						<Breakfasts />
 					</Route>
 					<Route exact path="/breakfast">
-						<Breakfasts></Breakfasts>
+						<Breakfasts />
 					</Route>
 					<Route path="/breakfast/:name">
-						<BreakfastDetail></BreakfastDetail>
+						<BreakfastDetail />
 					</Route>
 					<Route exact path="/lunch">
-						<Lunches></Lunches>
+						<Lunches />
 					</Route>
 					<Route exact path="/dinner">
-						<Dinners></Dinners>
+						<Dinners />
 					</Route>
 				</Switch>
 			</Router>

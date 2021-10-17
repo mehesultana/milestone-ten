@@ -13,7 +13,6 @@ const Breakfasts = () => {
 
 	return (
 		<Container>
-			<h1 className="text-primary mt-5">Our breakfasts</h1>
 			<Row xs={1} md={3} className="g-4 ">
 				{breakfasts.map((breakfast) => (
 					<Breakfast key={breakfast.id} breakfast={breakfast}></Breakfast>
